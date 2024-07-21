@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="real.css">
+    <link rel="stylesheet"href="instantsearch.css">
+    <title>Real Estate Demo Website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+</head>
+<body>
+  <div class="header1"><div><img src="logo.png"width="120px"></div><div class="laptop"><a href="#">Home</a><a href="#">About</a>
+    <a href="#">Buy</a><a href="#">Contact</a></div></div>
+    <div class="off-screen-menu">
+        <ul class="hovering">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Buy</a></li>
+          <li><a href="#">Contact
+            </a></li>
+        </ul>
+      </div>
+    <div class="header"><div><img src="logo.png"width="120px"alt="logo"></div><div class="headersub"> <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        
+      </div>
+    </nav>
+<script>const hamMenu = document.querySelector(".ham-menu");
+
+const offScreenMenu = document.querySelector(".off-screen-menu");
+
+hamMenu.addEventListener("click", () => {
+  hamMenu.classList.toggle("active");
+  offScreenMenu.classList.toggle("active");
+});</script></div></div>
+<div class="frontpage"><div class="phonesub">
+    <h2>ROYAL HOUSING ESTATE IS A MULTI-FACETED NIGERIAN BASED REAL ESTATE COMPANY</h2>
+    <p>Our aim is to provide affordable houses to people.</p><div class="searching"><input type="text"id="search-box"placeholder="Search by city, state, or postal code" >
+      <br><div id="results"></div></div>
+</div></div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchBox = document.getElementById('search-box');
+    const resultsContainer = document.getElementById('results');
+   
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            // Initialize Lunr.js
+            const idx = lunr(function () {
+                this.ref('id');
+                this.field('city');
+                this.field('state');
+                this.field('postalCode');
+                this.field('houseType');
+
+                data.forEach(doc => {
+                    this.add(doc);
+                });
+            });searchBox.addEventListener('input', function () {
+                const query = searchBox.value;
+                if (query.trim() === "") {
+                    resultsContainer.innerHTML = '';
+                } else {
+                    const results = idx.search(query);
+                    displayResults(results, data);
+                }
+            });
+
+            function displayResults(results, data) {
+                resultsContainer.innerHTML = '';
+                if (results.length > 0) {
+                    results.forEach(result => {
+                        const item = data.find(d => d.id === parseInt(result.ref));
+                        const resultItem = document.createElement('div');
+                        resultItem.classList.add('result-item');
+                        resultItem.innerHTML = `
+                            <h2><a href="${item.link}">${item.city}, ${item.state}</a></h2>
+                            <p>Postal Code: ${item.postalCode}</p>
+                            <p>House Type: ${item.houseType}</p>
+                            <img src="${item.image}" alt="${item.houseType}">
+                        `;resultsContainer.appendChild(resultItem);
+                    });
+                } else {
+                    resultsContainer.innerHTML = '<p>No results found</p>';
+                }
+            }
+        });
+});
+              
+    </script>
+
+<div class="stats"><h2 class="hr">Our Statistics</h2><div class="statssub"><div><h2>5</h2><p>Years Of<br> Existence</p></div><div><h2>30</h2><p>Branches <br>In NIgeria</p></div></div><div class="statssub"><div><h2>50+</h2><p>5 star<br> Reviews</p></div><div><h2>60+</h2><p>Team<br>Members</p></div></div></div>
+<div class="about box"><h2>About Royal</h2><p>Royal is a multi-faceted company with proven track record of successfully delivering a one-stop resource for all real estate needs. Established in 2024, with over 60 employees out of our Nigerian offices, our team leverages unparalleled expertise and income producing strategies to maximize the value of investment real estate. We are capable of executing real estate transactions of any size in Nigeria. Our property management services, powered by Poplar Homes, cover multi-family, office, retail and industrial assets. We specialize in luxury and garden-style apartment sales. Our investment brokerage team executes over $100M in sales annually. Our construction arm focuses on adaptive reuse and multifamily renovations. And we provide REO Management and Receivership services for lenders of distressed assets.
+</p><div class="socials"><img src="linked.png"width="50px"><img src="face.png"width="50px"><img src="x.png"width="50px"><img src="instagram.png"width="50px"></div></div>
+
+<div class="services"><h2>
+OUR REAL ESTATE SERVICES
+</h2>
+<div class="ser"><div class="se box"><h2 class="het">Property Sales and Purchases</h2><img id="nn"src="sales.jpeg"width="60px"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div>
+<div class="se box"><h2>Property Management</h2><img src="management.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div>
+<div class="se box"><h2>Leasing Services</h2><img src="lease.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div></div>
+
+
+<div class="ser"><div class="se box"><h2>Real Estate Marketing</h2><img src="market.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div>
+<div class="se box"><h2>Valuation Services</h2><img src="evaluation.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div>
+<div class="se box"><h2>Consulting Services</h2><img src="consult.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div></div>
+
+
+<div class="ser"><div class="se box"><h2>Financing Assistance</h2><img src="financial.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div>
+<div class="se box"><h2>Legal Services</h2><img src="legal.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div>
+<div class="se box"><h2>Development Services</h2><img src="deve.jpeg"alt="image"><p> Helping clients buy and sell residential, commercial, and industrial properties.</p></div></div>
+</div>
+<div class="ght">
+  <h2>OUR PROFESSIONALS</h2><div class="tbt"><div class="ter box">
+    <img src="mum.jpg"width="100px"alt="image">
+    <h2>Mrs Ify Chukure</h2>
+    <p>CEO Royals</p>
+    <q><i>Success is not cheap and must be bought with hardwork,dicipline and self-motivation. Royal remains the best in Nigeria and is currently striving in the west African market.</i></q>
+  </div>
+  <div class="ter box">
+    <img src="bro.jpeg"width="100px"alt="image">
+    <h2>ASP DC chukure</h2>
+    <p>General Manager Royals</p><q><i>I can remember when we started we were no where, but now we are some where.</i></q>
+ 
+  </div>
+  <div class="ter box">
+    <img src="me.png"width="100px"alt="image">
+    <h2>ENGR. Chukure Kingsley</h2>
+    <p>Sales Manager Royals</p><q><i>If you need fast reliable real estate services, we remain the one that can offer those services.</i></q>
+ 
+  </div></div>
+</div></div>
+<div class="achieve"><div><h2>OUR ACHIEVEMENT</h2></div>
+<div class="active">
+<div class="award">
+  <img src="award1.png"width="100px">
+  <p>In the year 2020 Royal won the most inovative Real Estate Brand Africa</p>
+</div>
+<div class="award">
+  <img src="award2.png"width="100px">
+  <p>In the year 2020 Royal won the most inovative Real Estate Brand Africa</p>
+</div>
+<div class="award">
+  <img src="award3.png"width="100px">
+  <p>In the year 2020 Royal won the most inovative Real Estate Brand Africa</p>
+</div>
+<div class="award">
+<img src="award4.png"width="100px">
+<p>In the year 2020 Royal won the most inovative Real Estate Brand Africa</p>
+</div>
+<div class="award">
+<img src="award5.png"width="100px">
+<p>In the year 2020 Royal won the most inovative Real Estate Brand Africa</p>
+</div></div></div>
+
+<div><h2 class="bn">TESTIMONIALS</h2>
+<div class="hji box"><img class="gb"src="white.jpeg"width="100px"alt=""><p>Albeto Dobriho</p>
+<q><i>I am so exicted to say Royal have given me me a befitting house with just low payment made.I would advise everyone to patronize Royal because they remain the best real estate company</i></q></div></div>
+
+
+
+
+<div class="foot">
+  <div id="phone"class="foot1">
+    <div><img src=""width="50px"><h3>Contact Me</h3></div>
+<div class="ft"><a href="mailto:kchukure@gmail"><img id="kit"src="plane.png"width="10px">kchukure@gmail.com</a>
+  <div class="pho"><a href="tel: +2348069422738"><img id="kit"src="phone.png"width="8px">+2340869422738</a></div><div class="socials">
+<a href="https://x.com/KChukure877"><img src="x.png"width="30px"></a>
+    <a href="https://www.instagram.com/kingsleychukure?igsh=OGQ5ZDc2ODk2ZA=="><img src="inst.png"width="30px"></a>
+    <a href="https://www.linkedin.com/in/kingsley-chukure-ab34142ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="in.png"width="30px"></a></div>
+<a class="cv"href="#">Download CV</a></div></div>
+<div class="foot2">
+  <input type="text"id="fullname"placeholder="Your Name">
+  <input type="email"id="email"placeholder="Your Email">
+  <textarea id="notes"placeholder="Your Message"></textarea>
+<input id="sum"type="submit"placeholder="submit">
+</div>
+
+ 
+</div>
+
+  <div class="contact-phone">
+    <h2>Contact Me</h2>
+
+   
+    <div class="contact-phone1"> <form action="https://formsubmit.co/5f4142b9d7712770e0722bc04f3a34c5" method="POST"><input type="text"name="fullname"placeholder="Your Name"required>
+    <input type="email"name="email"placeholder="Your Email"required>
+    <textarea name="notes"placeholder="Your Message"required></textarea>
+    <div class="to"><button class="gu"type="submit">Submit</button></form><a class="gd"href="#">Resume</a></div>
+    <div class="contactpart"><a href="mailto:kchukure@gmail.com"><img id="kit"src="plane.png"width="10px">kchukure@gmail.com</a>
+      <a href="tel: +2348069422738"><img id="kit"src="pho.png"width="8px">+2340869422738</a>
+    </div>
+    <div class="socials2">
+      <a href="#"><img src="x.png"width="30px"></a>
+      <a href="#"><img src="in.png"width="30px"></a>
+      <a href="#"><img src="instagram.png"width="30px"></a>
+    </div>
+  </div>
+
+<footer>
+  <p>Website made by kingsley@2024.All reserved.</p>
+</footer>
+
+
+
+
+
+
+<script src="https://unpkg.com/scrollreveal"></script>        
+<script>
+   ScrollReveal().reveal('.box', { duration: 1000, distance: '20px',delay: 300, origin: 'bottom', easing: 'cubic-bezier(0.5, 0, 0, 1)', reset: true, scale: 0.8, viewFactor: 0.2, });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+   {
+    "type":"duplex",
+    "postal_code": "900001",
+    "state":"abuja"
+
+   } ,{
+    "type":"bungalow",
+    "postal_code": "100001",
+    "state":"lagos"
+
+   },
+   {
+    "type":"semi-detached",
+    "postal_code": "500001",
+    "state":"rivers"
+
+   }    
+
+]

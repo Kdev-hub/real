@@ -1,0 +1,88 @@
+[
+   {
+       "id": 1,
+       "city": "Lagos",
+       "state": "Lagos",
+       "postalCode": "100001",
+       "houseType": "Apartment",
+       "image": "apartment1.jpeg",
+       "link": "link1.html"
+   },
+   {
+       "id": 2,
+       "city": "Abuja",
+       "state": "FCT",
+       "postalCode": "900001",
+       "houseType": "Villa",
+       "image": "villa1.jpeg",
+       "link": "link2.html"
+   },
+   {
+       "id": 3,
+       "city": "Port Harcourt",
+       "state": "Rivers",
+       "postalCode": "500001",
+       "houseType": "Bungalow",
+       "image": "bungalow1.jpeg",
+       "link": "link3.html"
+   },
+   {
+       "id": 4,
+       "city": "Ibadan",
+       "state": "Oyo",
+       "postalCode": "200001",
+       "houseType": "Duplex",
+       "image": "duplex1.jpeg",
+       "link": "link4.html"
+   },    {
+       "id": 6,
+       "city": "Enugu",
+       "state": "Enugu",
+       "postalCode": "400001",
+       "houseType": "Apartment",
+       "image": "apartment2.jpeg",
+       "link": "link6.html"
+   },
+   {
+       "id": 7,
+       "city": "Benin City",
+       "state": "Edo",
+       "postalCode": "300001",
+       "houseType": "Bungalow",
+       "image": "bungalow2.jpeg",
+       "link": "link7.html"
+   },{
+       "id": 5,
+       "city": "Kano",
+       "state": "Kano",
+       "postalCode": "700001",
+       "houseType": "Mansion",
+       "image": "mansion1.jpeg",
+       "link": "link5.html"
+   },{
+       "id": 8,
+       "city": "Jos",
+       "state": "Plateau",
+       "postalCode": "930001",
+       "houseType": "Villa",
+       "image": "villa2.jpeg",
+       "link": "link8.html"
+   },
+   {
+       "id": 9,
+       "city": "Abeokuta",
+       "state": "Ogun",
+       "postalCode": "110001",
+       "houseType": "Duplex",
+       "image": "duplex2.jpeg",
+       "link": "link9.html"
+   },{
+       "id": 10,
+       "city": "Kaduna",
+       "state": "Kaduna",
+       "postalCode": "800001",
+       "houseType": "Mansion",
+       "image": "mansion2.jpeg",
+       "link": "link10.html"
+   }
+]
