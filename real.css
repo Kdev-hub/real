@@ -629,3 +629,49 @@ color:white;
 .gb{
    border-radius: 50px;
 }
+.container{
+    margin: auto;
+   background:lightgrey;
+   right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1000;
+}
+
+
+
+.loader{
+    
+    
+    
+    background: lightgrey;
+  transform: translate(-50%,-50%);
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    
+    
+} 
+
+.loader {
+  --c:no-repeat linear-gradient(firebrick,crimson,red);
+  background: 
+    var(--c),var(--c),var(--c),
+    var(--c),var(--c),var(--c),
+    var(--c),var(--c),var(--c);
+  background-size: 12.5px 12.5px;
+ 
+  animation: 
+    l32-1 1s infinite,
+    l32-2 1s infinite;
+}
+@keyframes l32-1 {
+  0%,100% {width:45px;height: 45px}
+  35%,65% {width:65px;height: 65px}
+}
+@keyframes l32-2 {
+  0%,40%  {background-position: 0 0,0 50%, 0 100%,50% 100%,100% 100%,100% 50%,100% 0,50% 0,  50% 50% }
+  60%,100%{background-position: 0 50%, 0 100%,50% 100%,100% 100%,100% 50%,100% 0,50% 0,0 0,  50% 50% }
+} 
